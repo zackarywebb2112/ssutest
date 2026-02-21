@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Have a Secret...</title>
+    <style>
+        :root {
+            --soft-pink: #fce4ec;
+            --soft-blue: #e3f2fd;
+            --text-color: #5d4037;
+            --accent: #d4a373;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--soft-blue) 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* The Reveal Card */
+        .reveal-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .reveal-card:hover {
+            transform: scale(1.02);
+        }
+
+        .hidden-content {
+            display: none;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        p { font-size: 1.1rem; line-height: 1.6; }
+
+        /* The Announcement Image */
+        .announcement-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .due-date {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .confetti {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="cover" class="reveal-card" onclick="revealNews()">
+            <span class="confetti">✉️</span>
+            <h1>We have a little secret...</h1>
+            <p>Click the card to find out!</p>
+        </div>
+
+        <div id="content" class="hidden-content">
+            <h1>Surprise!</h1>
+            <p>Newest Webb coming soon!</p>
+            
+            <img src="baby.jpg" alt="Pregnancy Announcement" class="announcement-image">
+            
+            <p class="due-date">Coming October 2026</p>
+        </div>
+    </div>
+
+    <script>
+        function revealNews() {
+            document.getElementById('cover').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            
+            // Optional: Add a little console wink
+            console.log("Congratulations!");
+        }
+    </script>
+</body>
+</html>
